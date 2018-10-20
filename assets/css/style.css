@@ -1,68 +1,74 @@
-#headLogo,
-.modal-body {
-    margin: 0 auto;
+.container {
+    grid-column-start: 4;
+}
+
+body {
+    background-image: url("../images/background.jpg");
+    color: rgba(245, 95, 0, 0.9);
+}
+
+header {
+    font-family: 'Monoton', cursive;
+    font-size: 100px;
+}
+
+#startGame {
+    font-family: 'Courgette', cursive;
+    position: relative;
+    color: rgba(245, 95, 0, 0.9);
+    background: transparent;
+    outline: none;
+    font-size: 30px;
+}
+
+.choice {
+    font-family: 'Audiowide', cursive;
+    color: white;
+    outline: none;
+    font-size: 25px;
     font-weight: bold;
-    -webkit-animation: colorchange 15s infinite alternate;
 }
 
-.close {
-    color: #FFF;
-    opacity: 1;
+#questions {
+    font-family: 'Audiowide', cursive;
+    color: white;
+    outline: none;
+    font-size: 30px;
 }
 
-@-webkit-keyframes colorchange {
-    0% {
+.score {
+    font-family: 'Boogaloo', cursive;
+    color: rgba(255, 209, 57, 0.747);
+    outline: none;
+    font-size: 27px;
+    padding-left: 20%;
+}
 
-        color: #FF5733;
-    }
+.over {
+    font-family: 'Boogaloo', cursive;
+    color: rgba(245, 95, 0, 0.9);
+    background: transparent;
+    outline: none;
+    border: 5px;
+    font-size: 80px;
+    padding-left: 14%;
+    margin-top: -20px;
+}
 
-    10% {
+.reset {
+    font-family: 'Courgette', cursive;
+    color: rgba(255, 153, 0, 0.747);
+    background: transparent;
+    outline: none;
+    border: 5px;
+    font-size: 40px;
+    padding-left: 10%;
+}
 
-        color: #FFBD33;
-    }
+button:hover {
+    color: rgb(239, 255, 13);
+}
 
-    20% {
-
-        color: #DBFF33;
-    }
-
-    30% {
-
-        color: #75FF33;
-    }
-
-    40% {
-
-        color: #33FF57;
-    }
-
-    50% {
-
-        color: #33FFBD;
-    }
-
-    60% {
-
-        color: #008080;
-    }
-
-    70% {
-
-        color: #00FFFF;
-    }
-
-    80% {
-
-        color: #FF00FF;
-    }
-
-    90% {
-
-        color: #00FF00;
-    }
-
-    100% {
-
-        color: #FFFF00;
-    }
+button:focus {
+    outline: 0;
 }
