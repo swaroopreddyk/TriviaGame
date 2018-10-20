@@ -1,6 +1,9 @@
 $(document).ready(() => {
   $("#audioTag").trigger('load');
   $("#audioTag").trigger('play');
+  var audio = document.getElementById("audioTag");
+  var btn_playPause = document.getElementById("btn_playPause");
+  btn_playPause.style.backgroundPosition = "0 " + (audio.play() ? "-32px" : "0px");
   $("#questionSection").hide();
 
   let index = 0;
@@ -220,10 +223,8 @@ $(document).ready(() => {
   });
 
   $("#btn_playPause").on("click", () => {
-    var audio = document.getElementById("audioTag");
-    var btn_playPause = document.getElementById("btn_playPause");
     var isPaused = audio.paused;
-    isPaused? audio.play(): audio.pause();
+    isPaused ? audio.play() : audio.pause();
     btn_playPause.style.backgroundPosition = "0 " + (isPaused ? "-32px" : "0px");
   });
 });
