@@ -15,40 +15,43 @@ $(document).ready(() => {
       q1: "Which cousin invited Ross to her wedding, but not Monica?",
       q2: "What was Monica's nickname when she was a field-hockey goalie?",
       q3: "What is Joey's favorite food?",
-      q4: "What dessert did Rachel try to make for Thanksgiving?"
+      q4: "What dessert did Rachel try to make for Thanksgiving?",
+      q5: "What part of New York is Rachel from?"
     },
     options: {
       o1: ["FRANNY", "BETH", "MONA", "ANNA"],
       o2: ["BENCHWARMER MON", "SAC OF POTATOES", "BIG FAT GOALIE", "MONICA THE BEAST"],
       o3: ["SANDWICHES", "CHOCOLATE CAKE", "PIZZA", "SPAGHETTI AND MEATBALLS"],
-      o4: ["SOUFFLE", "COOKIES", "CAKE", "TRIFLE"]
+      o4: ["SOUFFLE", "COOKIES", "CAKE", "TRIFLE"],
+      o5: ["BRONX", "LONG ISLAND", "STATEN ISLAND", "WESTCHESTER"]
     },
     answers: {
       a1: "FRANNY",
       a2: "BIG FAT GOALIE",
       a3: "SANDWICHES",
-      a4: "TRIFLE"
+      a4: "TRIFLE",
+      a5: "LONG ISLAND"
     }
   }
 
   let correctImages = ["https://media.giphy.com/media/g7shkYchjuRBm/giphy.gif",
-  "https://media.giphy.com/media/ld1RKulOqeeaI/giphy.gif",
-  "https://media.giphy.com/media/xThuWp2hJABbmc20Ew/giphy.gif",
-  "https://media.giphy.com/media/DxA688OXGUMSI/giphy.gif",
-  "https://media.giphy.com/media/113PoJxEaRxKbm/giphy.gif"
-];
-let inCorrectImages = ["https://media.giphy.com/media/L0aWDywDu1ziw/giphy.gif",
-  "https://media.giphy.com/media/X4YqmJEl6wJoY/giphy.gif",
-  "https://media.giphy.com/media/XJCL959KwYbE4/giphy.gif",
-  "https://media.giphy.com/media/up34B0awEJuVy/giphy.gif",
-  "https://media.giphy.com/media/L20E2bh3ntSCc/giphy.gif"
-];
-let unansweredImages= ["https://media.giphy.com/media/Hvga7JOtsLcli/giphy.gif",
-  "https://media.giphy.com/media/xT0BKgqxLJLHtUsRJ6/giphy.gif",
-  "https://media.giphy.com/media/oaEcH0gKPJ2wM/giphy.gif",
-  "https://media.giphy.com/media/eHQQGL3dGOyQM/giphy.gif",
-  "https://media.giphy.com/media/26FPxK7LVhEHammiY/giphy.gif"
-];
+    "https://media.giphy.com/media/ld1RKulOqeeaI/giphy.gif",
+    "https://media.giphy.com/media/xThuWp2hJABbmc20Ew/giphy.gif",
+    "https://media.giphy.com/media/DxA688OXGUMSI/giphy.gif",
+    "https://media.giphy.com/media/113PoJxEaRxKbm/giphy.gif"
+  ];
+  let inCorrectImages = ["https://media.giphy.com/media/L0aWDywDu1ziw/giphy.gif",
+    "https://media.giphy.com/media/X4YqmJEl6wJoY/giphy.gif",
+    "https://media.giphy.com/media/XJCL959KwYbE4/giphy.gif",
+    "https://media.giphy.com/media/up34B0awEJuVy/giphy.gif",
+    "https://media.giphy.com/media/L20E2bh3ntSCc/giphy.gif"
+  ];
+  let unansweredImages = ["https://media.giphy.com/media/Hvga7JOtsLcli/giphy.gif",
+    "https://media.giphy.com/media/xT0BKgqxLJLHtUsRJ6/giphy.gif",
+    "https://media.giphy.com/media/oaEcH0gKPJ2wM/giphy.gif",
+    "https://media.giphy.com/media/eHQQGL3dGOyQM/giphy.gif",
+    "https://media.giphy.com/media/26FPxK7LVhEHammiY/giphy.gif"
+  ];
 
 
   let countDown = {
@@ -113,11 +116,11 @@ let unansweredImages= ["https://media.giphy.com/media/Hvga7JOtsLcli/giphy.gif",
     let randomIndex = Math.floor(Math.random() * 5);
     let gifSrc = '';
     if (word === "wrong") {
-        gifSrc = inCorrectImages[randomIndex];
+      gifSrc = inCorrectImages[randomIndex];
     } else if (word === "correct") {
-        gifSrc = correctImages[randomIndex];
+      gifSrc = correctImages[randomIndex];
     } else {
-        gifSrc = unansweredImages[randomIndex];
+      gifSrc = unansweredImages[randomIndex];
     }
 
     $('#options').append(`<img class="gif" src="${gifSrc}" alt="">`);
@@ -200,7 +203,7 @@ let unansweredImages= ["https://media.giphy.com/media/Hvga7JOtsLcli/giphy.gif",
     if ($(this).hasClass("correct")) {
       trivia.correct++;
       answerRight();
-    } else if ($(this).hasClass("incorrect")){
+    } else if ($(this).hasClass("incorrect")) {
       trivia.incorrect++;
       answerWrong();
     }
@@ -216,4 +219,11 @@ let unansweredImages= ["https://media.giphy.com/media/Hvga7JOtsLcli/giphy.gif",
     displayQuestion(index);
   });
 
+  $("#btn_playPause").on("click", () => {
+    var audio = document.getElementById("audioTag");
+    var btn_playPause = document.getElementById("btn_playPause");
+    var isPaused = audio.paused;
+    isPaused? audio.play(): audio.pause();
+    btn_playPause.style.backgroundPosition = "0 " + (isPaused ? "-32px" : "0px");
+  });
 });

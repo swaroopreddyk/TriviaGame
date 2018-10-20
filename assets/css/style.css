@@ -72,3 +72,12 @@ button:hover {
 button:focus {
     outline: 0;
 }
+
+#btn_playPause {
+    background: url(http://i.stack.imgur.com/ENFH5.png) no-repeat;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    outline: none;
+}
